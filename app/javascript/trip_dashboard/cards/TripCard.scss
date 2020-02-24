@@ -1,0 +1,72 @@
+.trip-card{
+  border: 1px solid #dfdfdf;
+  border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 8px;
+  .fa-trash{
+    right: 10px;
+    position: absolute;
+    top: 6px;
+    color: #d5d5d5;
+  }
+}
+
+.trip-card-info{
+  width: 100%;
+  padding: 4px 8px;
+  h3{
+    font-size: 16px;
+    color: #4a4a4a;
+    margin-bottom: 3px;
+  }
+  p{
+    margin-bottom: 8px;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}
+
+.card-picture {
+  width: 120px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.trip-card-location-info{
+  color:
+gray;
+font-size: 10px;
+display: flex;
+align-items: center;
+p{
+  margin: 0px;
+  margin-left: 8px;
+}
+}
+
+.card-category{
+  font-size: 12px;
+  border-radius: 8px;
+  border: none
+black;
+  padding: 2px 8px;
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  &.monument{
+    background-color: #ff4800;
+  }  
+  &.food{
+    background-color: rgb(95, 255, 47);
+  }
+  &.art{
+    background-color: rgb(49, 49, 255);
+  }
+  &.store{
+    background-color: rgb(231, 49, 255);
+  }
+}

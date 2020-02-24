@@ -1,0 +1,11 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'font-awesome/scss/font-awesome';
+
+@import 'components/index';
+
+
+.trip-dashboard-container{
+  min-height: calc(100vh - 50px);
+  position: relative;
+  padding: 0px !important;
+}

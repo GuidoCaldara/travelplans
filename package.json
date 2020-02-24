@@ -1,0 +1,30 @@
+{
+  "name": "travelplans",
+  "private": true,
+  "dependencies": {
+    "@babel/preset-react": "^7.8.3",
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.2.2",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "bootstrap": "^4.4.1",
+    "dotenv": "^8.2.0",
+    "font-awesome": "^4.7.0",
+    "google-map-react": "^1.1.6",
+    "jquery": "^3.4.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-fontawesome": "^1.7.1",
+    "react-places-autocomplete": "^7.2.1",
+    "react-select": "^3.0.8",
+    "react-select2-wrapper": "^1.0.4-beta6",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.3"
+  }
+}

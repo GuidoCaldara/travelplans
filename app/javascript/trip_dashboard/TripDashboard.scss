@@ -1,0 +1,31 @@
+.form-btn{
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+}
+
+
+.dashboard-navtab{
+  display: flex;
+  justify-content:space-around;
+  padding: 8px 0px;
+  color: white;
+  background-color: orange;
+  div{
+    width: 48%;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 8px;  
+  }
+}
+
+.map-container{
+  position: absolute
+}
+
+.trip-card-container{
+  padding: 8px
+}
