@@ -22,13 +22,13 @@ const TripDashboard = (props) => {
     }).then((x) => setIsLoading(false))
   }, []);
 
-  const closeForm = (activity = null) => {
+  const closeForm = (e, activity = null) => {
     setShowActivityForm(false)
     if (activity){
       setActivitiesList([...activitiesList, activity]);
     }
   }
-
+  console.log(activitiesList)
   return (
     <div className="">
         { showActivityForm ? 
@@ -40,8 +40,10 @@ const TripDashboard = (props) => {
           : null
         }
         <div className="dashboard-header">
-          <h1>{trip.title}</h1>
-          <p>From {trip.start_date} to {trip.end_date}</p>
+          <div className="trip-info">
+            <h1>{trip.title}</h1>
+            <p>From {trip.formatted_start_date} to {trip.formatted_end_date}</p>
+          </div>
           <div className="dashboard-navtab">
             <div><FA name="map" onClick={() => {setShowMap(true)}}/></div>
             <div><FA name="list" onClick={() => {setShowMap(false)}}/></div>
@@ -49,7 +51,7 @@ const TripDashboard = (props) => {
         </div>
         -
         <div className="trip-card-container">
-          {activitiesList.map((a,i) => <TripCard key={i} activity={a}/>)}
+          {activitiesList.map((a,i) => <TripCard key={i} activity={a} user={user}/>)}
         </div>
         <button 
           className="btn btn-primary form-btn"

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :trips do
         resources :activities, only: [:create, :index]
       end
+        resources :activities, only: [:update]
       get 'is_logged_in', to: 'sessions#is_logged_in'
       resources :activities, only: [:show]
     end

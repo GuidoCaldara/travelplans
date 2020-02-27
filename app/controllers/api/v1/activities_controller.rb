@@ -21,6 +21,16 @@ class Api::V1::ActivitiesController < ApplicationController
     end
   end
 
+  def update
+    @activity = Activity.find(params[:id])
+    @activity.done = true
+    if @activity.save
+      render :updated, status: :ok
+    else
+      render_error
+    end
+  end
+
   private
 
 

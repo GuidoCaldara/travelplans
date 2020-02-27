@@ -63,16 +63,16 @@ const ActivityForm = (props) => {
       if (data.errors){
         setErrors(data.errors)
       } else {
-        props.closeForm(data)
+        props.closeForm(null, data)
       }
     })
   }
 
   return(
     <div className="form-background">
-    { errors.map( e => <p>{e}</p>)}
+    { errors.map( (e,i ) => <p key={i}>{e}</p>)}
     { activityCategory.label }
-      <FA className="close-form-icon" name="times" onClick={props.closeForm}/>
+      <FA className="close-form-icon" name="times" onClick={(e) =>{props.closeForm(e)}}/>
       <div className="activity-form-card">
         <form onSubmit={onSubmit}>
           <div className="form-group">

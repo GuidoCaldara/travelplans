@@ -1,30 +1,49 @@
-.trip-card{
-  border: 1px solid #dfdfdf;
-  border-radius: 8px;
+.trip-card {
+  border: 1px solid #eee;
+  border-radius: 16px;
   display: flex;
   overflow: hidden;
   position: relative;
   margin-bottom: 8px;
-  .fa-trash{
+
+  .fa-trash {
+    right: 16px;
+    position: absolute;
+    top: 8px;
+    color: #d5d5d5;
+    cursor: pointer;
+  }
+
+  .fa-eye, .fa-check {
     right: 10px;
     position: absolute;
-    top: 6px;
-    color: #d5d5d5;
+    bottom: 8px;
+    color:#ffa80382;
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+  .fa-check{
+    color: #12d212;
   }
 }
 
-.trip-card-info{
+.trip-card-info {
   width: 100%;
-  padding: 4px 8px;
-  h3{
+  padding: 10px 12px;
+
+  h3 {
+    font-weight: bold;
     font-size: 16px;
     color: #4a4a4a;
     margin-bottom: 3px;
   }
-  p{
+
+  p {
     margin-bottom: 8px;
     font-size: 12px;
     margin-top: 5px;
+    font-weight: 300px;
   }
 }
 
@@ -35,38 +54,42 @@
   background-repeat: no-repeat;
 }
 
-.trip-card-location-info{
+.trip-card-location-info {
   color:
-gray;
-font-size: 10px;
-display: flex;
-align-items: center;
-p{
-  margin: 0px;
-  margin-left: 8px;
-}
+    gray;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 0px;
+    margin-left: 8px;
+  }
 }
 
-.card-category{
+.card-category {
   font-size: 12px;
   border-radius: 8px;
-  border: none
-black;
+  border: none black;
   padding: 2px 8px;
   width: 35%;
   display: flex;
   justify-content: center;
   color: white;
-  &.monument{
+
+  &.monument {
     background-color: #ff4800;
-  }  
-  &.food{
+  }
+
+  &.food {
     background-color: rgb(95, 255, 47);
   }
-  &.art{
+
+  &.art {
     background-color: rgb(49, 49, 255);
   }
-  &.store{
+
+  &.store {
     background-color: rgb(231, 49, 255);
   }
 }
