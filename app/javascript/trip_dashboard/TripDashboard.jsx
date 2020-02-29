@@ -1,6 +1,7 @@
 import React, { useState, useEffect }  from 'react'
 import ActivityForm from './activity-form/ActivityForm'
 import TripMap from './map/TripMap.jsx'
+import Alert from './alert/Alert.jsx'
 import TripCard from './cards/TripCard.jsx'
 import {getDashboardInfos} from '../trip_dashboard/utils'
 import './TripDashboard.scss'
@@ -9,7 +10,7 @@ var FA = require('react-fontawesome')
 const TripDashboard = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [showMap, setShowMap] = useState(true)
-  const [showActivityForm, setShowActivityForm] = useState(false);
+  const [showActivityForm, setShowActivityForm] = useState(true);
   const [user, setUser] = useState(null);
   const [activitiesList, setActivitiesList] = useState([]);
   const [trip, setTrip] = useState({});
@@ -28,7 +29,12 @@ const TripDashboard = (props) => {
       setActivitiesList([...activitiesList, activity]);
     }
   }
-  console.log(activitiesList)
+  
+  const removeActivity = (activity) =>{
+    const activities = activitiesList.filter( a => a.id !== activity.id)
+    setActivitiesList(activities)
+  }
+
   return (
     <div className="">
         { showActivityForm ? 
@@ -51,7 +57,14 @@ const TripDashboard = (props) => {
         </div>
         -
         <div className="trip-card-container">
-          {activitiesList.map((a,i) => <TripCard key={i} activity={a} user={user}/>)}
+          {activitiesList.map((a,i) => 
+          <TripCard 
+            key={i}
+            removeActivity={removeActivity} 
+            activity={a} 
+            user={user}
+            />)
+          }
         </div>
         <button 
           className="btn btn-primary form-btn"

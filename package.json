@@ -1,6 +1,34 @@
 {
   "name": "travelplans",
   "private": true,
+  "eslintConfig": {
+    "extends": ["react-app", "plugin:prettier/recommended"],
+    "env": {
+      "browser": true,
+      "jest": true,
+      "es6": true
+    },
+    "plugins": [
+      "import"
+    ],
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-console": "warn",
+      "no-eval": "error",
+      "import/first": "error"
+    }
+  },
+  "prettier":{
+    "singleQuote": true,
+    "printWidth": 85,
+    "arrowParens": "always",
+    "semi": false,
+    "tabWidth": 2
+  },
   "dependencies": {
     "@babel/preset-react": "^7.8.3",
     "@fortawesome/fontawesome-free": "^5.12.1",
@@ -11,6 +39,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.4.1",
     "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
     "font-awesome": "^4.7.0",
     "google-map-react": "^1.1.6",
     "jquery": "^3.4.1",
@@ -21,10 +50,18 @@
     "react-places-autocomplete": "^7.2.1",
     "react-select": "^3.0.8",
     "react-select2-wrapper": "^1.0.4-beta6",
+    "sweetalert-react": "^0.4.11",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-react": "^7.18.3",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
     "webpack-dev-server": "^3.10.3"
   }
 }

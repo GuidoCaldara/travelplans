@@ -12,6 +12,7 @@ class Api::V1::ActivitiesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @user = current_user
     @activity = Activity.new(activity_params)
+    @activity.automatic_picture = "https://picsum.photos/200/300"
     @activity.trip = @trip
     authorize @activity
     if @activity.save
@@ -24,11 +25,19 @@ class Api::V1::ActivitiesController < ApplicationController
   def update
     @activity = Activity.find(params[:id])
     @activity.done = true
+    authorize @activity
     if @activity.save
-      render :updated, status: :ok
+      render :update, status: :ok
     else
       render_error
     end
+  end
+
+  def destroy
+    @activity = Activity.find(params[:id])
+    authorize @activity
+    @activity.destroy
+    head :no_content
   end
 
   private

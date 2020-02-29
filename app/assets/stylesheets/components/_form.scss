@@ -1,0 +1,22 @@
+.form-group {
+  background: white;
+  padding: 5px 13px 3px 13px;
+  border-radius: 6px;
+  label{
+    color:#959595;
+    font-size: 12px;
+    margin: 0px
+  }
+  input, textarea{
+    border: none;
+    height: auto;
+    padding: 0px;
+    &:focus{
+      box-shadow: none;
+    }
+  }
+}
+
+.css-yk16xz-control{
+  border: none
+}

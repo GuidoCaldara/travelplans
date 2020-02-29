@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       end
         resources :activities, only: [:update]
       get 'is_logged_in', to: 'sessions#is_logged_in'
-      resources :activities, only: [:show]
+      resources :activities, only: [:show, :destroy]
     end
   end
 
