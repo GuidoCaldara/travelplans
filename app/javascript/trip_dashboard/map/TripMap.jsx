@@ -2,6 +2,12 @@ import React, { Component, useEffect, useState, useRef } from 'react'
 import ReactDOMServer from 'react-dom/server'
 import TripCard from '../cards/TripCard'
 import MarkerPurple from '../../images/marker-purple.svg'
+import Museum from '../../images/museum.svg'
+import Art from '../../images/art.svg'
+import Food from '../../images/food.svg'
+import Shopping from '../../images/shopping.svg'
+import Nature from '../../images/nature.svg'
+import Monument from '../../images/monument.svg'
 
 const TripMap = ({ activitiesList, showActivity, removeActivity }) => {
   const googleMap = useRef(null)
@@ -14,7 +20,22 @@ const TripMap = ({ activitiesList, showActivity, removeActivity }) => {
       m.setMap(null)
     })
   }
-
+  const selectPinType = (a) => {
+    switch (a.category) {
+      case 'museum':
+        return Museum
+      case 'art':
+        return Art
+      case 'nature':
+        return Nature
+      case 'food':
+        return Food
+      case 'shopping':
+        return Shopping
+      case 'monument':
+        return Monument
+    }
+  }
   const addMarkers = () => {
     const latLng = Object.keys(activitiesList).map((f) => [
       activitiesList[f].latitude,
@@ -24,8 +45,8 @@ const TripMap = ({ activitiesList, showActivity, removeActivity }) => {
     cleanMarkers(latLng)
     activitiesList.forEach((a) => {
       var icon = {
-        url: MarkerPurple, // url
-        scaledSize: new google.maps.Size(50, 50) // scaled size
+        url: selectPinType(a),
+        scaledSize: new google.maps.Size(50, 50)
       }
 
       const newMarker = new google.maps.Marker({
