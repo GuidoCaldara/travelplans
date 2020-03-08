@@ -6,7 +6,7 @@ import Alert from '../alert/Alert.jsx'
 import './TripCard.scss'
 var FA = require('react-fontawesome')
 
-const TripCard = ({ activity, user, removeActivity, showActivity }) => {
+const TripCard = ({ activity, user, removeActivity, showActivity, mapCard }) => {
   const [updateAlert, setUpdateAlert] = useState(false)
   const [destroyAlert, setDestroyAlert] = useState(false)
 
@@ -24,7 +24,7 @@ const TripCard = ({ activity, user, removeActivity, showActivity }) => {
     }
   }
   return (
-    <div className="trip-card">
+    <div className={`trip-card ${mapCard ? 'map-card' : ''}`}>
       {updateAlert ? (
         <Alert
           updateActivities={updateActivities}
@@ -57,11 +57,16 @@ const TripCard = ({ activity, user, removeActivity, showActivity }) => {
       ></div>
       <div className="trip-card-info">
         <h3>{capitalize(activity.title)}</h3>
-          <p className="card-location-info">{activity.location}</p>
-          <span className="card-category">{`#${activity.category.toUpperCase()}`}</span>
+        <p className="card-location-info">{activity.location}</p>
+        <span className="card-category">{`#${activity.category.toUpperCase()}`}</span>
       </div>
       <div className="card-link-box">
-        <img onClick={()=> {showActivity(activity)}} src={LinkToImg}/>
+        <img
+          onClick={() => {
+            showActivity(activity)
+          }}
+          src={LinkToImg}
+        />
       </div>
     </div>
   )

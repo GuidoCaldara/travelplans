@@ -1,10 +1,55 @@
 .btn-primary {
   background: $color-primary;
   border: none;
+  &:active {
+    background: $color-primary !important;
+    border: none !important;
+  }
+  &:hover {
+    background: $color-primary !important;
+    border: none !important;
+  }
+  &:focus {
+    box-shadow: none !important;
+  }
+
+  &.white-btn {
+    background: white;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    &:active {
+      background: white !important;
+      color: $color-primary !important;
+      border: 1px solid $color-primary !important;
+    }
+    &:hover {
+      background: white !important;
+      color: $color-primary !important;
+      border: 1px solid $color-primary !important;
+    }
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
 }
 .btn-primary:hover {
   background-position: right center;
   background: $color-primary;
   border: none;
+}
 
+.btn-light{
+  color: #b1b1b1 !important;
+  background: #eaeaea !important;
+  &:active {
+    color: #b1b1b1 !important;
+    background: #eaeaea !important;
+    }
+  &:hover {
+    color: #b1b1b1 !important;
+    background: #eaeaea !important;
+    }
+  &:focus {
+    box-shadow: none !important;
+    }
 }

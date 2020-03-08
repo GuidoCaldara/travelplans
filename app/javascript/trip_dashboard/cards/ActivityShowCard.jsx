@@ -1,36 +1,50 @@
 import React, { useState, useEffect, user } from 'react'
 import './ActivityShowCard.scss'
 import Alert from '../alert/Alert.jsx'
-
+import DashboardHeader from '../dashboardHeader/DashboardHeader'
 const FA = require('react-fontawesome')
 
-const ActivityShowCard = ({ activity, user, closeShowPage}) => {
+const ActivityShowCard = ({
+  activity,
+  updateActivityDone,
+  removeActivity,
+  zoomedActivity,
+  showActivity
+}) => {
   const [updateAlert, setUpdateAlert] = useState(false)
-
-  const updateActivities = (type) => {
-    if (type === 'update') {
-      activity.done = true
-      setUpdateAlert(false)
-    } else if (type === 'destroy') {
-      removeActivity(activity)
-      setDestroyAlert(false)
-    }
-  }
+  const [deleteAlert, setDeleteAlert] = useState(false)
 
   return (
     <div className="show-activity-card-wrapper">
+      <DashboardHeader
+        title={zoomedActivity.title}
+        subtitle={zoomedActivity.location}
+        button={
+          <FA className="close-show-icon" name="times" onClick={showActivity} />
+        }
+      />
+
       {updateAlert ? (
         <Alert
-          closeShowPage={closeShowPage}
-          updateActivities={updateActivities}
+          confirmAlert={updateActivityDone}
           activity={activity}
-          user={user}
-          alertType="update"
           title="Confirm?"
           dismiss={() => {
             setUpdateAlert(false)
           }}
           subtitle={`Mark ${activity.title} as seen?`}
+        />
+      ) : null}
+      {deleteAlert ? (
+        <Alert
+          confirmAlert={removeActivity}
+          activity={activity}
+          alertType="update"
+          title="Are you sure?"
+          dismiss={() => {
+            setDeleteAlert(false)
+          }}
+          subtitle={`Delete ${activity.title} from your list?`}
         />
       ) : null}
 
@@ -39,18 +53,53 @@ const ActivityShowCard = ({ activity, user, closeShowPage}) => {
         <h3>Description</h3>
         <p>{activity.notes}</p>
       </div>
-      {activity.done ? null : (      <button
+      <button
         onClick={() => {
           setUpdateAlert(true)
         }}
-        className="btn btn-primary"
+        className={`btn btn-primary ${activity.done ? 'white-btn' : null}`}
       >
         <FA name="eye" />
-        Mark as Seen
+        {activity.done ? 'Move the activity back in ToSee' : 'Mark as seen'}
       </button>
-)}
+      <button
+        onClick={() => {
+          setDeleteAlert(true)
+        }}
+        className="btn btn-light"
+      >
+        <FA name="trash" /> Delete
+      </button>
     </div>
   )
 }
 
 export default ActivityShowCard
+
+// const updateActivities = (type) => {
+//   if (type === 'update') {
+//     activity.done = true
+//     setUpdateAlert(false)
+//   } else if (type === 'destroy') {
+//     removeActivity(activity)
+//     setDestroyAlert(false)
+//   }
+// }
+
+// const confirmAlert = (currentUser, activity) => {
+//   setDisplayConfirmIcon(true)
+//   if (alertType === 'update') {
+//     updateActivityDone(activity, currentUser).then((response) =>
+//       setTimeout(() => {
+//         updateActivities('update')
+//         closeShowPage()
+//       }, 800)
+//     )
+//   } else if (alertType === 'destroy') {
+//     destroyActivity(activity, currentUser).then((response) =>
+//       setTimeout(() => {
+//         updateActivities('destroy')
+//       }, 800)
+//     )
+//   }
+// }

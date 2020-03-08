@@ -16,7 +16,7 @@
 
 .alert-body {
   width: 80%;
-  height: 200px;
+  height: 196px;
   background: white;
   border-radius: 20px;
   margin: 0 auto;
@@ -24,6 +24,7 @@
   top: 20%;
   right: 10%;
   padding: 16px;
+  padding-top: 40px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -38,6 +39,7 @@
 
 .alert-title {
   h1 {
+    font-size: 32px;
     color: #4b4f53;
   }
   p {

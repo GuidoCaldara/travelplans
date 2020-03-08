@@ -1,38 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import IconConfirm from './IconConfirm'
-import { markActivityAsDone, destroyActivity } from '../utils'
+import { destroyActivity } from '../utils'
 import './Alert.scss'
 var FA = require('react-fontawesome')
 
 const Alert = ({
-  alertType,
   activity,
+  confirmAlert,
   closeShowPage,
-  user,
   title,
   subtitle,
   dismiss,
-  updateActivities
 }) => {
   const [displayConfirmIcon, setDisplayConfirmIcon] = useState(false)
 
-  const confirmAlert = (currentUser, activity) => {
-    setDisplayConfirmIcon(true)
-    if (alertType === 'update') {
-      markActivityAsDone(activity, currentUser).then((response) =>
-        setTimeout(() => {
-          updateActivities('update')
-          closeShowPage()
-        }, 800)
-      )
-    } else if (alertType === 'destroy') {
-      destroyActivity(activity, currentUser).then((response) =>
-        setTimeout(() => {
-          updateActivities('destroy')
-        }, 800)
-      )
-    }
-  }
+
 
   return (
     <div className="alert-background">
@@ -56,7 +38,7 @@ const Alert = ({
               <button
                 className="btn btn-sm btn-primary alert-btn"
                 onClick={() => {
-                  confirmAlert(user, activity)
+                  confirmAlert(activity)
                 }}
               >
                 Yes!
@@ -70,3 +52,22 @@ const Alert = ({
 }
 
 export default Alert
+
+
+  // const confirmAlert = (currentUser, activity) => {
+  //   setDisplayConfirmIcon(true)
+  //   if (alertType === 'update') {
+  //     updateActivityDone(activity, currentUser).then((response) =>
+  //       setTimeout(() => {
+  //         updateActivities('update')
+  //         closeShowPage()
+  //       }, 800)
+  //     )
+  //   } else if (alertType === 'destroy') {
+  //     destroyActivity(activity, currentUser).then((response) =>
+  //       setTimeout(() => {
+  //         updateActivities('destroy')
+  //       }, 800)
+  //     )
+  //   }
+  // }

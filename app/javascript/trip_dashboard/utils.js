@@ -28,7 +28,7 @@ const saveActivity = async (user, tripId, activity) => {
     return response
 }
 
-const markActivityAsDone = async (activity, user
+const updateActivity = async (activity, user
   ) =>{
   const url = `http://localhost:3000/api/v1/activities/${activity.id}`
   const request = await fetch(url, { 
@@ -38,13 +38,12 @@ const markActivityAsDone = async (activity, user
       'X-User-Email': user.email,
       'X-User-Token' : user.token
     },
-    body: JSON.stringify({done: true})
+    body: JSON.stringify({...activity, done: true})
   })
   const response = await request.json()
   return response
 
 }
-
 
 const destroyActivity = async (activity, user) => {
   const url = `http://localhost:3000/api/v1/activities/${activity.id}`
@@ -69,4 +68,4 @@ const getDashboardInfos = async (id) =>{
   return data
 }
 
-export { capitalize, saveActivity, getDashboardInfos, markActivityAsDone, destroyActivity }
+export { capitalize, saveActivity, getDashboardInfos, updateActivity, destroyActivity }

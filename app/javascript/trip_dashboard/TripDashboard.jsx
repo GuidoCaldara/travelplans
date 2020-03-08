@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import ActivityForm from './activity-form/ActivityForm'
 import TripMap from './map/TripMap.jsx'
-import Alert from './alert/Alert.jsx'
 import TripCard from './cards/TripCard.jsx'
 import Navtab from './navtab/Navtab.jsx'
+import Spinner from './spinner/Spinner'
 import DashboardHeader from './dashboardHeader/DashboardHeader'
 import ActivityShowCard from './cards/ActivityShowCard'
-import { getDashboardInfos } from '../trip_dashboard/utils'
+import {
+  getDashboardInfos,
+  updateActivity,
+  destroyActivity
+} from '../trip_dashboard/utils'
 import './TripDashboard.scss'
 var FA = require('react-fontawesome')
 
 const TripDashboard = (props) => {
   const [isLoading, setIsLoading] = useState(true)
-  const [showMap, setShowMap] = useState(false)
+  const [showMap, setShowMap] = useState(true)
+  const [showDone, setShowDone] = useState(false)
   const [showActivityForm, setShowActivityForm] = useState(false)
   const [user, setUser] = useState(null)
   const [zoomedActivity, setZoomedActivity] = useState(null)
@@ -44,80 +49,100 @@ const TripDashboard = (props) => {
     }
   }
 
+  const updateActivityDone = (activity) => {
+    activity.done = !activity.done
+    updateActivity(activity, user).then((response) =>
+      setTimeout(() => {
+        showActivity()
+      }, 800)
+    )
+  }
+
   const removeActivity = (activity) => {
-    const activities = activitiesList.filter((a) => a.id !== activity.id)
-    setActivitiesList(activities)
+    destroyActivity(activity, user).then(() => {
+      const activities = activitiesList.filter((a) => a.id !== activity.id)
+      setActivitiesList(activities)
+      setTimeout(() => {
+        showActivity()
+      }, 800)
+    })
+  }
+
+  const toggleList = (done) => {
+    setShowDone(done)
+    setShowMap(false)
   }
 
   let page
-  if (showActivityForm) {
+  if (isLoading) {
+    page = <Spinner />
+  } else if (showActivityForm) {
     page = (
       <div className="dashboard-wrapper">
         <ActivityForm tripId={trip.id} user={user} closeForm={closeForm} />
       </div>
     )
-  } else if (zoomedActivity) {
-    page = (
-      <div className="dashboard-wrapper">
-        <DashboardHeader
-          title={zoomedActivity.title}
-          subtitle={zoomedActivity.location}
-          button={
-            <FA className="close-show-icon" name="times" onClick={showActivity} />
-          }
-        />
-        <ActivityShowCard
-          closeShowPage={showActivity}
-          user={user}
-          activity={zoomedActivity}
-        />
-      </div>
-    )
   } else {
     page = (
       <div className="dashboard-wrapper">
+        {zoomedActivity ? (
+          <ActivityShowCard
+            showActivity={showActivity}
+            zoomedActivity={zoomedActivity}
+            updateActivityDone={updateActivityDone}
+            removeActivity={removeActivity}
+            closeShowPage={showActivity}
+            showDone={showDone}
+            user={user}
+            activity={zoomedActivity}
+          />
+        ) : null}
         <DashboardHeader
           title={trip.title}
           subtitle={`From ${trip.formatted_start_date} to ${trip.formatted_end_date}`}
         />
-        <div className="activity-list-header">
-          <h3>Your ToDo list in {trip.country} </h3>
-        </div>
-        <div className="trip-card-container">
-          <TripMap
-            user="user"
-            removeActivity={removeActivity}
-            activitiesList={activitiesList}
-            display={showMap}
-          />
-          {activitiesList.filter(a =>!a.done).map((a, i) => (
-            <TripCard
-              key={i}
-              removeActivity={removeActivity}
-              activity={a}
-              user={user}
-              showActivity={showActivity}
-            />
-          ))}
+        {showMap ? null : (
           <div className="activity-list-header">
-          <h3>Places you've seen </h3>
-        </div>
-        {activitiesList.filter(a => a.done).map((a, i) => (
-          <TripCard
-            key={i}
-            removeActivity={removeActivity}
-            activity={a}
-            user={user}
-            showActivity={showActivity}
-          />
-        ))}
+            {showDone ? (
+              <h3>Places you've seen </h3>
+            ) : (
+              <h3>Your ToDo list in {trip.country} </h3>
+            )}
+          </div>
+        )}
 
+        <div className="trip-card-container">
+          {showMap ? (
+            <TripMap
+              showActivity={showActivity}
+              removeActivity={removeActivity}
+              activitiesList={activitiesList}
+              display={showMap}
+            />
+          ) : (
+            activitiesList
+              .filter((a) => a.done === showDone)
+              .map((a, i) => (
+                <TripCard
+                  key={i}
+                  removeActivity={removeActivity}
+                  activity={a}
+                  user={user}
+                  showActivity={showActivity}
+                />
+              ))
+          )}
         </div>
-        <Navtab setShowActivityForm={setShowActivityForm} setShowMap={setShowMap} />
+        <Navtab
+          toggleList={toggleList}
+          setShowActivityForm={setShowActivityForm}
+          setShowMap={() => {
+            setShowMap(true)
+          }}
+        />
       </div>
     )
   }
-
   return <div>{page}</div>
 }
 
