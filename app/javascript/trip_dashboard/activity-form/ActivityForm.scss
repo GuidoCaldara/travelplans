@@ -1,40 +1,64 @@
-.form-background{
+.form-background {
   position: absolute;
   width: 100%;
   height: 100vh;
-  background: #F0F2F6;
+  background: #f0f2f6;
   left: 0px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding-top: 24px;
   z-index: 2;
 }
 
-.activity-form-card{
-  padding: 16px 24px;
-  border-radius: 24px;
+.form-title {
+  text-align: center;
+  font-size: 24px;
+  color: #696969;
+  letter-spacing: 0.39px;
+  text-align: center;
 }
 
-.close-form-icon{
-  color: red;
+.activity-form-card {
+  padding: 32px 24px;
+  border-radius: 24px;
+  button{
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 33px;
+  }
+}
+
+.close-form-icon {
+  color: #c4c4c4;
   position: absolute;
   top: 16px;
   right: 16px;
-  font-size: 32px;
+  font-size: 24px;
 }
 
-.form-header{
-  width: 100%;
-    height: 20%;
-    background: red;
-    position: absolute;
-    top: 0;
-    left: 0px;
-    background: linear-gradient( to bottom, 
+.select-category-title {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #696969;
+  letter-spacing: 0.26px;
+  text-align: left;
+}
 
-#8f94fb,
-#4e54c8 );
-
-border-bottom-left-radius: 30px;
+.category-select-group-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  div {
+    text-align: center;
+    width: 46%;
+    border: 1px solid #6700f9;
+    border-radius: 8px;
+    color: #6700f9;
+    margin-bottom: 12px;
+    padding: 2px;
+    font-weight: lighter;
+    cursor: pointer;
+    &.selected{
+      color: white;
+      background: #6700f9
+    }
+  }
 }

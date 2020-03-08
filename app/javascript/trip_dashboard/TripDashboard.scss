@@ -6,58 +6,32 @@
   bottom: 70px;
   right: 20px;
 }
-
-.dashboard-header {
+.dashboard-wrapper{
+  height: calc(100vh); 
+  display: flex;
+  flex-direction: column;
+}
+.trip-card-container {
+  padding: 0px 8px;
+  flex: 1;
   position: relative;
 }
 
-.dashboard-navtab {
-  display: flex;
-  position: absolute;
-  bottom: -24px;
-  left: 5%;
-  justify-content: space-around;
-  padding: 8px 13px;
-  color: #5a60d2;
-  background: white;
-  width: 90%;
-  margin: 0 auto;
-  border-radius: 8px;
-  div {
-    width: 48%;
-    text-align: center;
-    border: 1px solid #5a60d2;
-    border-radius: 8px;
-  }
-}
-
-.map-container {
-  position: absolute;
-}
-
-.trip-card-container {
-  padding: 16px 8px;
-}
-
-.trip-info {
+.activity-list-header{
   text-align: center;
-  padding: 40px 24px;
-  background: #4e54c8; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #8f94fb,
-    #4e54c8
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    #8f94fb,
-    #4e54c8
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-bottom-left-radius: 30px;
-  color: white;
-  h1 {
-    font-size: 34px;
-    font-size: 30px;
-    font-weight: bold;
+  h3{
+    font-size: 16px;
+    color: #717171;
+    letter-spacing: 0.54px;
+    padding: 16px 0px 8px 0px;
+    margin-bottom: 8px;
   }
+}
+
+.map-container{
+  width: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    height: 100%;
 }

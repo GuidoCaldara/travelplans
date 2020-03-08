@@ -9,7 +9,9 @@ require("channels")
 
 
 const dashBoard = document.querySelector('#trip-dashboard')
-ReactDOM.render(
-  <TripDashboard tripId={dashBoard.dataset.id}/>,
-  dashBoard
-)
+if (dashBoard){
+  ReactDOM.render(
+    <TripDashboard tripId={dashBoard.dataset.id}/>,
+    dashBoard
+  )
+}

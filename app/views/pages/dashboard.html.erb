@@ -1,0 +1,12 @@
+<h1>User's dashboard</h1>
+
+<% @user.trips.each do |t| %>
+  <p><%= t.title %></p>
+  <p><%= t.start_date %></p>
+  <p><%= t.end_date %></p>
+  <p><%= t.country %></p>
+  <p><%= t.description %></p>
+  <%= link_to 'Delete', t, method: :delete, data: {confirm: "Are you sure?"} %>
+  <hr>
+<% end %>
+

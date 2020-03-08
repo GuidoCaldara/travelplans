@@ -1,0 +1,35 @@
+.activity-show-img {
+  height: 280px;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 8px;
+  border-radius: 11px;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.show-activity-card-wrapper{
+  text-align: center;
+  padding: 14px;
+  button{
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 33px;
+    span{
+      margin-right: 8px;
+    }
+  }
+}
+
+.activity-description-box{
+  padding: 20px 10px;
+  h3{
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #696969;
+    letter-spacing: 0.26px;
+  
+  }
+}

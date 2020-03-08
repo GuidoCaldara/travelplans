@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="210px" height="201px" viewBox="0 0 210 201" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>list</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="list" fill="#FFFFFF">
+            <path d="M18.5,0 C8.26314062,0 0,9.8264375 0,22 C0,34.1735625 8.26314062,44 18.5,44 C28.7368594,44 37,34.1735625 37,22 C37,9.8264375 28.7368594,0 18.5,0 Z" id="Path"></path>
+            <path d="M18.5,82 C8.26314062,82 0,91.8264374 0,104 C0,116.173563 8.26314062,126 18.5,126 C28.7368594,126 37,116.173563 37,104 C37,91.8264374 28.7368594,82 18.5,82 Z" id="Path"></path>
+            <path d="M18.5,157 C8.20185937,157 0,166.9 0,179 C0,191.1 8.325,201 18.5,201 C28.675,201 37,191.1 37,179 C37,166.9 28.7981406,157 18.5,157 Z" id="Path"></path>
+            <rect id="Rectangle" x="53" y="170" width="157" height="25"></rect>
+            <rect id="Rectangle" x="53" y="6" width="157" height="25"></rect>
+            <rect id="Rectangle" x="53" y="88" width="157" height="25"></rect>
+        </g>
+    </g>
+</svg>

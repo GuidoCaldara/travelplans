@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#home'
   resources :trips
-
+  get '/dashboard', to: "pages#dashboard", as: :dashboard
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :trips do

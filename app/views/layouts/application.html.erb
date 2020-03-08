@@ -11,7 +11,9 @@
 
   <body>
     <%= yield %>
-    <%= render 'shared/navbar' %>
+    <% if !(params[:controller] == "trips" && params[:action] == "show" ) %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_PLACES_API'] %>&libraries=places"></script>
     <%= javascript_pack_tag 'application' %>
   </body>

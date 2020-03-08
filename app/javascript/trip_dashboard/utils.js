@@ -8,7 +8,7 @@ const buildActivity = (activity) =>{
     latitude: activity.activityLatitude, 
     longitude: activity.activityLongitude,
     location: activity.activityLocation,
-    category: activity.activityCategory.value
+    category: activity.activityCategory
   }})
 }
 

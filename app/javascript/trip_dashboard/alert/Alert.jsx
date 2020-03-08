@@ -1,28 +1,49 @@
 import React, { useState, useEffect } from 'react'
 import IconConfirm from './IconConfirm'
-import {markActivityAsDone, destroyActivity} from '../utils'
+import { markActivityAsDone, destroyActivity } from '../utils'
 import './Alert.scss'
-const Alert = ({ alertType, activity, user, title, subtitle, dismiss, updateActivities }) => {
+var FA = require('react-fontawesome')
+
+const Alert = ({
+  alertType,
+  activity,
+  closeShowPage,
+  user,
+  title,
+  subtitle,
+  dismiss,
+  updateActivities
+}) => {
   const [displayConfirmIcon, setDisplayConfirmIcon] = useState(false)
 
-  const confirmAlert = () => {
+  const confirmAlert = (currentUser, activity) => {
     setDisplayConfirmIcon(true)
-    if (alertType === 'update'){
-      markActivityAsDone(activity, user)
-      .then((response) =>
-      setTimeout(()=>{updateActivities('update') },800)
+    if (alertType === 'update') {
+      markActivityAsDone(activity, currentUser).then((response) =>
+        setTimeout(() => {
+          updateActivities('update')
+          closeShowPage()
+        }, 800)
       )
-    } else if (alertType === 'destroy'){
-      destroyActivity(activity, user)
-      .then((response) =>
-      setTimeout(()=>{updateActivities('destroy') },800)
+    } else if (alertType === 'destroy') {
+      destroyActivity(activity, currentUser).then((response) =>
+        setTimeout(() => {
+          updateActivities('destroy')
+        }, 800)
       )
-    };
+    }
   }
 
   return (
     <div className="alert-background">
+    
+
       <div className="alert-body">
+      <FA
+      className="close-form-icon"
+      name="times"
+      onClick={dismiss}
+    />
         {displayConfirmIcon ? (
           <IconConfirm />
         ) : (
@@ -31,11 +52,15 @@ const Alert = ({ alertType, activity, user, title, subtitle, dismiss, updateActi
               <h1>{title}</h1>
               <p>{subtitle}</p>
             </div>
-            <div className="alert-btn-container" >
-              <button className="alert-btn alert-dismiss-btn" onClick={dismiss}>
-                Nope
+            <div className="alert-btn-container">
+              <button
+                className="btn btn-sm btn-primary alert-btn"
+                onClick={() => {
+                  confirmAlert(user, activity)
+                }}
+              >
+                Yes!
               </button>
-              <button className="alert-btn alert-confirm-btn" onClick={confirmAlert}>Yes!</button>
             </div>
           </React.Fragment>
         )}

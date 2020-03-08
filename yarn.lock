@@ -763,7 +763,7 @@
     "@babel/plugin-transform-react-jsx-self" "^7.8.3"
     "@babel/plugin-transform-react-jsx-source" "^7.8.3"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
   integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
@@ -955,6 +955,13 @@
     webpack-assets-manifest "^3.1.1"
     webpack-cli "^3.3.10"
     webpack-sources "^1.4.3"
+
+"@tanem/svg-injector@^8.0.40":
+  version "8.0.41"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.0.41.tgz#538a6f210ea49f173c1ccb9180cbd5c34c931873"
+  integrity sha512-vKomnKsycSS2eF6lNUPFKuPLPmh7UT93ISyrtQPb3HEd64Djp+dz6/rkImre5xTxuptTPwZs0NXztJV2ZIlTuw==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
 
 "@types/events@*":
   version "3.0.0"
@@ -6815,6 +6822,15 @@ react-select@^3.0.8:
     prop-types "^15.6.0"
     react-input-autosize "^2.2.2"
     react-transition-group "^2.2.1"
+
+react-svg@^11.0.11:
+  version "11.0.11"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-11.0.11.tgz#4a09fd1440d176fb857cd28c8b80c8568dcf6dd0"
+  integrity sha512-eNop/sMRImwSjS2Jsl7X36QN4J6wuFbh755xsLcRwE5Kcps3wZM71IJlA5zMyD8Mag//a3CsoH9TNP6E2rlxfw==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    "@tanem/svg-injector" "^8.0.40"
+    prop-types "^15.7.2"
 
 react-transition-group@^2.2.1:
   version "2.9.0"

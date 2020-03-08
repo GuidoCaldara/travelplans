@@ -1,10 +1,60 @@
-.nav-container{
-  background:linear-gradient(to bottom, #8f94fb, #4e54c8);
+.nav-container {
+  background: #6700f9;
   display: flex;
-  height: 50px;
+  height: 60px;
   justify-content: space-between;
   width: 100%;
-  position: fixed;
+  z-index: 100;
+
+  position: sticky;
   bottom: 0px;
-  padding: 5px 10px
+  padding: 10px 25px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  img {
+    width: 16px;
+  }
+}
+
+.navtab-box {
+  display: flex;
+  width: 35%;
+  justify-content: space-between;
+}
+
+.navtab-img-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  font-size: 10px;
+  height: 38px;
+  justify-content: space-around;
+  span {
+    margin-top: 4px;
+  }
+}
+
+.add-activity-btn {
+  position: absolute;
+  left: 42%;
+  width: 16%;
+  display: flex;
+  justify-content: center;
+  top: -27px;
+  background: #6700f9;
+  z-index: 999;
+  height: 65px;
+  border-radius: 55px;
+  align-items: flex-start;
+  padding-top: 10px;
+  img {
+    width: 40px;  }
+}
+
+
+.card-link-box{
+  img{
+    width: 16px;
+  }
 }

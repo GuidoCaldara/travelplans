@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './ActivityForm.scss'
 import { saveActivity } from '../utils.js'
-import Select from 'react-select'
+import DashboardHeader from '../dashboardHeader/DashboardHeader.jsx'
+import OptionBtn from './OptionBtn'
 import 'react-select2-wrapper/css/select2.css'
 
 const FA = require('react-fontawesome')
@@ -31,13 +32,15 @@ const ActivityForm = (props) => {
     { value: 'food', label: 'FOOD' },
     { value: 'museum', label: 'MUSEUM' },
     { value: 'shop', label: 'SHOP' },
-    { value: 'party', label: 'PARTY' }
-
   ]
+
+  const selectCategory = (e) =>{
+    const category = e.target.dataset.value
+    setActivityCategory(category)
+  }
 
   const handlePlaceSelect = () => {
     const place = autocompleteField.getPlace()
-    console.log(place)
     if (place.photos && place.photos[0]) setActivityPicture(place.photos[0].getUrl())
     setActivityLocation(place.name)
     setActivityLatitude(place.geometry.location.lat())
@@ -72,12 +75,7 @@ const ActivityForm = (props) => {
 
   return (
     <div className="form-background">
-    <div className="form-header">
-      Add a To Do
-    </div>
-      {errors.map((e, i) => (
-        <p key={i}>{e}</p>
-      ))}
+     <h3 className="form-title">Add a ToSee</h3>
       {activityCategory.label}
       <FA
         className="close-form-icon"
@@ -101,7 +99,12 @@ const ActivityForm = (props) => {
           </div>
           <div className="form-group">
             <label htmlFor="title">Activity location</label>
-            <input ref={autocomplete} type="text" className="form-control" placeholder=""/>
+            <input
+              ref={autocomplete}
+              type="text"
+              className="form-control"
+              placeholder=""
+            />
           </div>
           <div className="form-group">
             <label htmlFor="title">Activity notes</label>
@@ -109,19 +112,17 @@ const ActivityForm = (props) => {
               onChange={(e) => {
                 onChange(e, setActivityNotes)
               }}
+              style={{'height': '150px'}}
               className="form-control"
               id=""
               rows="6"
             ></textarea>
           </div>
-          <div className="form-group">
-            <Select
-              value={activityCategory}
-              onChange={(c) => setActivityCategory(c)}
-              options={options}
-            />
+          <h3 className="select-category-title">Select a category</h3>
+          <div className="category-select-group-box">
+          {options.map((o, i) => <OptionBtn handleClick={selectCategory} selected={o.value === activityCategory } key={i} name={o.value}/>)}
           </div>
-          <button type="submit">Confirm</button>
+          <button className="btn btn-primary float-right" type="submit">Confirm</button>
         </form>
       </div>
     </div>
@@ -129,3 +130,15 @@ const ActivityForm = (props) => {
 }
 
 export default ActivityForm
+
+// {errors.map((e, i) => (
+//   <p key={i}>{e}</p>
+// ))}
+
+// <div className="form-group">
+// <Select
+//   value={activityCategory}
+//   onChange={(c) => setActivityCategory(c)}
+//   options={options}
+// />
+// </div>

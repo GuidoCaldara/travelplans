@@ -1,22 +1,32 @@
 .form-group {
   background: white;
   padding: 5px 13px 3px 13px;
-  border-radius: 6px;
-  label{
-    color:#959595;
+  border-radius: 12px;
+  background: #FFFFFF;
+  box-shadow: 6px 6px 9px 0 rgba(224,224,224,0.50);
+
+  label {
     font-size: 12px;
-    margin: 0px
+    margin: 0px;
+    color: #696969;
+    letter-spacing: 0.19px;
+    text-align: left;
   }
-  input, textarea{
+  input,
+  textarea {
+    font-size: 16px;
+    color: #3e3e3e;
+    letter-spacing: 0.26px;
+    text-align: left;
     border: none;
     height: auto;
     padding: 0px;
-    &:focus{
+    &:focus {
       box-shadow: none;
     }
   }
 }
 
-.css-yk16xz-control{
-  border: none
+.css-yk16xz-control {
+  border: none;
 }

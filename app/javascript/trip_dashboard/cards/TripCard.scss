@@ -1,12 +1,18 @@
 .trip-card {
-  border: 1px solid #eee;
-  border-radius: 16px;
+  box-shadow: 6px 6px 9px 0 rgba(224, 224, 224, 0.5);
+  border-radius: 37px;
   display: flex;
   overflow: hidden;
   position: relative;
   margin-bottom: 8px;
   background: white;
-
+  height: 88px;
+  padding: 0px 24px;
+  align-items: center;
+  &.trip-card-infowindow{
+    padding: 0px;
+    box-shadow: none;
+  }
   .fa-trash {
     right: 16px;
     position: absolute;
@@ -15,24 +21,26 @@
     cursor: pointer;
   }
 
-  .fa-eye, .fa-check {
+  .fa-eye,
+  .fa-check {
     right: 10px;
     position: absolute;
     bottom: 8px;
-    color:#ffa80382;
+    color: #ffa80382;
     cursor: pointer;
     font-size: 24px;
   }
 
-  .fa-check{
+  .fa-check {
     color: #12d212;
   }
 }
 
 .trip-card-info {
   width: 100%;
-  padding: 10px 12px;
-
+  flex: 1 1;
+  height: 100%;
+  padding: 10px 10px;
   h3 {
     font-weight: bold;
     font-size: 16px;
@@ -47,57 +55,32 @@
     margin-bottom: 0px;
   }
 
-  .notes-info{
+  .notes-info {
     font-weight: 400;
     font-size: 12px;
     margin-bottom: 8px;
-
   }
 }
 
 .card-picture {
-  width: 120px;
+  width: 64px;
+  height: 64px;
+  border-radius: 11px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.trip-card-location-info {
-  color:
-    gray;
-  font-size: 10px;
-  display: flex;
-  align-items: center;
+.card-location-info {
+  margin: 0px;
+  color: #858585;
+  font-size: 14px;
 
-  p {
-    margin: 0px;
-    margin-left: 8px;
-  }
+  font-weight: 300;
 }
 
 .card-category {
   font-size: 12px;
-  border-radius: 8px;
-  border: none black;
-  padding: 2px 8px;
-  width: 35%;
-  display: flex;
-  justify-content: center;
-  color: white;
-
-  &.monument {
-    background-color: #ff4800;
-  }
-
-  &.food {
-    background-color: rgb(95, 255, 47);
-  }
-
-  &.art {
-    background-color: rgb(49, 49, 255);
-  }
-
-  &.store {
-    background-color: rgb(231, 49, 255);
-  }
+  color: #6700f9;
+  font-weight: 300;
 }
