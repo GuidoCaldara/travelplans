@@ -24,7 +24,7 @@ class Api::V1::ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
-    @activity.done = true
+    @activity.done = params[:activity][:done]
     authorize @activity
     if @activity.save
       render :update, status: :ok

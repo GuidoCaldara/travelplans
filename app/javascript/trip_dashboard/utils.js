@@ -39,7 +39,7 @@ const updateActivity = async (activity, user) => {
       'X-User-Email': user.email,
       'X-User-Token': user.token
     },
-    body: JSON.stringify({ ...activity, done: true })
+    body: JSON.stringify(activity)
   })
   const response = await request.json()
   return response

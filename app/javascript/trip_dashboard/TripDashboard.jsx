@@ -16,7 +16,7 @@ var FA = require('react-fontawesome')
 
 const TripDashboard = (props) => {
   const [isLoading, setIsLoading] = useState(true)
-  const [showMap, setShowMap] = useState(true)
+  const [showMap, setShowMap] = useState(false)
   const [showDone, setShowDone] = useState(false)
   const [showActivityForm, setShowActivityForm] = useState(false)
   const [user, setUser] = useState(null)
@@ -50,12 +50,13 @@ const TripDashboard = (props) => {
   }
 
   const updateActivityDone = (activity) => {
-    activity.done = !activity.done
-    updateActivity(activity, user).then((response) =>
+    updateActivity({ ...activity, done: !activity.done }, user).then((response) =>
       setTimeout(() => {
         showActivity()
-      }, 800)
+      }, 100)
     )
+    const newList = activitiesList.filter((a) => a.id !== activity.id)
+    setActivitiesList([...newList, { ...activity, done: !activity.done }])
   }
 
   const removeActivity = (activity) => {
@@ -64,7 +65,7 @@ const TripDashboard = (props) => {
       setActivitiesList(activities)
       setTimeout(() => {
         showActivity()
-      }, 800)
+      }, 100)
     })
   }
 
