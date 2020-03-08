@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState, useRef } from 'react'
 import ReactDOMServer from 'react-dom/server'
-import InfoWindow from './InfoWindow'
 import TripCard from '../cards/TripCard'
+import MarkerPurple from '../../images/marker-purple.svg'
 
 const TripMap = ({ activitiesList, showActivity, removeActivity }) => {
   const googleMap = useRef(null)
@@ -23,8 +23,14 @@ const TripMap = ({ activitiesList, showActivity, removeActivity }) => {
     const markersList = markers
     cleanMarkers(latLng)
     activitiesList.forEach((a) => {
+      var icon = {
+        url: MarkerPurple, // url
+        scaledSize: new google.maps.Size(50, 50) // scaled size
+      }
+
       const newMarker = new google.maps.Marker({
         position: { lat: a.latitude, lng: a.longitude },
+        icon: icon,
         map: map
       })
       const infowindow = new google.maps.InfoWindow({
@@ -33,7 +39,6 @@ const TripMap = ({ activitiesList, showActivity, removeActivity }) => {
       newMarker.addListener(
         'click',
         function() {
-          console.log(a)
           setShowCard(a)
           // const content = ReactDOMServer.renderToString(InfoWindow(a))
           // infowindow.setContent(content)
