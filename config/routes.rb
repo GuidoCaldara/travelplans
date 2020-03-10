@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  get '/service-worker.js' => "service_worker#service_worker"
+  get '/manifest.json' => "service_worker#manifest"
   root 'pages#home'
   resources :trips
   get '/dashboard', to: "pages#dashboard", as: :dashboard
