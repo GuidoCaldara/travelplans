@@ -1,12 +1,31 @@
-<h1>User's dashboard</h1>
+<div class="dashboard-header">
+  <div class="trip-info">
+    <h1>Your trips</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      
+      <% if @user.trips.empty? %>
+      <div class="pic-card-container">
+        <%= image_tag 'no-trips-pic.svg' %>
+        <p>There are no trips in your dashboard. Add the first one</p>
+      </div>
+      <% end %>
+      
+      <div class="trip-cards-wrapper ">
+        <% @user.trips.each do |t| %>
+        <%= render 'trips/card', trip: t %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% @user.trips.each do |t| %>
-  <p><%= t.title %></p>
-  <p><%= t.start_date %></p>
-  <p><%= t.end_date %></p>
-  <p><%= t.country %></p>
-  <p><%= t.description %></p>
-  <%= link_to 'Delete', t, method: :delete, data: {confirm: "Are you sure?"} %>
-  <hr>
-<% end %>
 
+  <div class="add-trip-btn">
+    <%= link_to new_trip_path, remote: true do %>
+      <%= image_tag "add.svg" %>
+    <% end  %>
+  </div>  

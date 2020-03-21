@@ -1,4 +1,5 @@
 import TripDashboard from '../trip_dashboard/TripDashboard'
+import Unsplash, { toJson } from 'unsplash-js'
 
 import ReactDOM from 'react-dom'
 import React from 'react'
@@ -28,3 +29,6 @@ const dashBoard = document.querySelector('#trip-dashboard')
 if (dashBoard) {
   ReactDOM.render(<TripDashboard tripId={dashBoard.dataset.id} />, dashBoard)
 }
+
+
+

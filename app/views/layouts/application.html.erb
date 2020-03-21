@@ -2,20 +2,26 @@
 <html>
   <head>
     <title>Travelplans</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#C50001" />
+
     <%= csrf_meta_tags %> <%= csp_meta_tag %>
     <link
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track':
     'reload' %> <%= stylesheet_pack_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %> <% if !(params[:controller] == "trips" && params[:action] == "show"
-    ) %> <%= render 'shared/navbar' %> <% end %>
+        <%= yield %>
+        <% if !(params[:controller] == "trips" && params[:action] == "show"
+        ) %>
+          <!-- <#%= render 'shared/navbar' %> -->
+        <% end %>
     <script
       type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_PLACES_API'] %>&libraries=places"

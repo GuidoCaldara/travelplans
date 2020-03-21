@@ -1,0 +1,29 @@
+function reRenderForm(){
+  document.querySelector(".trip-form-container").remove()
+  const body = document.querySelector("body")
+  body.insertAdjacentHTML("afterbegin", "<%= j render 'trips/new', trip: @trip %>")
+}
+
+function removeSpinner(){
+  document.querySelector(".spinner-wrapper").remove()
+}
+
+function appendCard(){
+  const container = document.querySelector(".trip-cards-wrapper")
+  const picContainer = document.querySelector(".pic-card-container")
+  if (picContainer) picContainer.remove()
+  
+  container.insertAdjacentHTML("afterbegin","<%= j render 'trips/card', trip: @trip %>")
+}
+
+<% if @trip.errors.any? %>
+  removeSpinner()
+  reRenderForm()
+<% else %>
+  removeSpinner()
+  document.querySelector(".trip-form-container").remove()
+  appendCard()
+<% end %>
+
+
+

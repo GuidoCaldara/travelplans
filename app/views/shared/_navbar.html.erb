@@ -1,5 +1,9 @@
 <div class="nav-container">
-  <%= link_to root_path %>
-  <%= link_to root_path %>
-  <%= link_to root_path %>
+  <div class="add-activity-btn">
+    <%= link_to new_trip_path, remote: true do %>
+      <%= image_tag "add.svg" %>
+    <% end  %>
+  </div>  
 </div>
+
+

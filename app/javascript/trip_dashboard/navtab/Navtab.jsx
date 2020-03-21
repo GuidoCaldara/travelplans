@@ -2,7 +2,7 @@ import React from 'react'
 import ListImg from '../../images/list.svg'
 import CompassImg from '../../images/compass.svg'
 import CompletedImg from '../../images/completed.svg'
-import FriendsImg from '../../images/Friends.svg'
+import HomeImg from '../../images/home.svg'
 import AddImg from '../../images/add.svg'
 import './Navtab.scss'
 
@@ -17,6 +17,7 @@ const Navtab = ({ setShowMap, setShowActivityForm, toggleList }) => {
           }}
         />
       </div>
+
       <div className="navtab-box">
         <div className="navtab-img-container">
           <img
@@ -30,32 +31,32 @@ const Navtab = ({ setShowMap, setShowActivityForm, toggleList }) => {
         <div className="navtab-img-container">
           <img
             src={ListImg}
-            onClick={ () => {toggleList(false)} }
+            onClick={() => {
+              toggleList(false)
+            }}
           />
           <span>ToSee List</span>
         </div>
       </div>
       <div className="navtab-box">
         <div className="navtab-img-container">
-          <img src={CompletedImg} 
-          onClick={ () => {toggleList(true)} }
+          <img
+            src={CompletedImg}
+            onClick={() => {
+              toggleList(true)
+            }}
           />
           <span>Seen List</span>
         </div>
-        <div className="navtab-img-container">
-          <img src={FriendsImg} />
-          <span>Friends</span>
-        </div>
+        <a href="/">
+          <div className="navtab-img-container">
+            <img src={HomeImg} />
+            <span>Home</span>
+          </div>
+        </a>
       </div>
     </div>
   )
 }
 
 export default Navtab
-
-// <div className="">
-// <img
-//   src=""
-
-// />
-// </div>

@@ -57,7 +57,10 @@ const TripCard = ({ activity, user, removeActivity, showActivity, mapCard }) => 
       ></div>
       <div className="trip-card-info">
         <h3>{capitalize(activity.title)}</h3>
-        <p className="card-location-info">{activity.location}</p>
+        <p className="card-location-info">
+          {activity.location.substring(0, 20)}
+          {activity.location.length > 20 ? '...' : null}
+        </p>
         <span className="card-category">{`#${activity.category.toUpperCase()}`}</span>
       </div>
       <div className="card-link-box">

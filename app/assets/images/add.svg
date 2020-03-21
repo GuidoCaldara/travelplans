@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="637px" height="637px" viewBox="0 0 637 637" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>add-button-1</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="add-button-1" transform="translate(318.500000, 318.500000) scale(-1, 1) translate(-318.500000, -318.500000) " fill="#FFFFFF">
+            <path d="M318.5,0 C142.882037,0 0,142.882037 0,318.5 C0,494.117963 142.882037,637 318.5,637 C494.117963,637 637,494.117963 637,318.5 C637,142.882037 494.117963,0 318.5,0 Z M318.5,597.188222 C164.829659,597.188222 39.8129334,472.171497 39.8129334,318.501156 C39.8129334,164.830815 164.829659,39.8129334 318.5,39.8129334 C472.170341,39.8129334 597.188222,164.829659 597.188222,318.5 C597.188222,472.170341 472.170341,597.188222 318.5,597.188222 Z" id="Shape" fill-rule="nonzero"></path>
+            <polygon id="Path" points="334.437645 155 294.562355 155 294.562355 294.562355 155 294.562355 155 334.437645 294.562355 334.437645 294.562355 474 334.437645 474 334.437645 334.437645 474 334.437645 474 294.562355 334.437645 294.562355"></polygon>
+        </g>
+    </g>
+</svg>

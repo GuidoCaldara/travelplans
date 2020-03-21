@@ -1,0 +1,10 @@
+<%= link_to trip do  %>
+<div class="trip-card-l" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('<%= trip.picture %>')">
+  <div>
+    <%= flag_icon(trip.country.downcase.to_sym)%>
+    <h1><%= trip.title.truncate(30) %></h1>
+  </div>
+  <p>From <%= trip.start_date.strftime("%b %d") %> to <%= trip.end_date.strftime("%b %d") %></p>
+  <%#= link_to 'Delete', trip, method: :delete, data: {confirm: "Are you sure?"} %>
+</div>
+<% end %>

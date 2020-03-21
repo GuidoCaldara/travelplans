@@ -1,0 +1,23 @@
+
+function displayModal() {
+  const body = document.querySelector("body")
+  body.insertAdjacentHTML("afterbegin", "<%= j render 'trips/new', trip: @trip %>")
+  closeModal()
+}
+
+function renderSpinner(){
+  const btn = document.querySelector('.create-trip-btn')
+  btn.addEventListener('click',() => {
+    document.querySelector('body').insertAdjacentHTML("afterbegin", "<%= j render 'shared/spinner'%>")
+  })
+
+}
+
+function closeModal() {
+  const btn = document.querySelector(".close-form-icon")
+  btn.addEventListener('click',()=>{
+    document.querySelector(".trip-form-container")
+.remove()  })
+}
+displayModal()
+renderSpinner()

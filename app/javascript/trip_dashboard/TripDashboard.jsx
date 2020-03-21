@@ -98,6 +98,7 @@ const TripDashboard = (props) => {
             activity={zoomedActivity}
           />
         ) : null}
+
         <DashboardHeader
           title={trip.title}
           subtitle={`From ${trip.formatted_start_date} to ${trip.formatted_end_date}`}
@@ -107,7 +108,7 @@ const TripDashboard = (props) => {
             {showDone ? (
               <h3>Places you've seen </h3>
             ) : (
-              <h3>Your ToDo list in {trip.country} </h3>
+              <h3>Your ToDo list in {trip.country_name} </h3>
             )}
           </div>
         )}
@@ -118,6 +119,7 @@ const TripDashboard = (props) => {
               showActivity={showActivity}
               removeActivity={removeActivity}
               activitiesList={activitiesList}
+              center={{lat: trip.latitude, lng: trip.longitude}}
               display={showMap}
             />
           ) : (

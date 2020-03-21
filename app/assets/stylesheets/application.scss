@@ -2,8 +2,10 @@ $color-primary: #6700F9;
 
 @import 'bootstrap/scss/bootstrap';
 @import 'font-awesome/scss/font-awesome';
+@import "flag-icon";
 
 @import 'components/index';
+@import 'pages/index';
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
@@ -15,7 +17,7 @@ $color-primary: #6700F9;
 }
 
 body{
-  background-color:#F7F7F7
+  background-color:#efefefd1
 }
 #trip-dashboard{
   height: calc(100vh - 50px);

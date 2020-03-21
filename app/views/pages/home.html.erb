@@ -2,3 +2,7 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 
+<%= link_to "sign_in", new_user_session_path %>
+<% if current_user %>
+<%= link_to "trips", trip_path(current_user.trips.first) %>
+<% end %>

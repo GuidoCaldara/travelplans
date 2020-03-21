@@ -9,12 +9,12 @@ import Shopping from '../../images/shopping.svg'
 import Nature from '../../images/nature.svg'
 import Monument from '../../images/monument.svg'
 
-const TripMap = ({ activitiesList, showActivity, removeActivity }) => {
+const TripMap = ({ activitiesList, center, showActivity, removeActivity }) => {
   const googleMap = useRef(null)
   const [map, setMap] = useState(null)
   const [markers, setMarkers] = useState([])
   const [showCard, setShowCard] = useState(null)
-
+  console.log('center', center)
   const cleanMarkers = (latLng) => {
     markers.forEach((m) => {
       m.setMap(null)
@@ -61,9 +61,6 @@ const TripMap = ({ activitiesList, showActivity, removeActivity }) => {
         'click',
         function() {
           setShowCard(a)
-          // const content = ReactDOMServer.renderToString(InfoWindow(a))
-          // infowindow.setContent(content)
-          // infowindow.open(map, newMarker)
         },
         { passive: true }
       )
@@ -109,8 +106,8 @@ const TripMap = ({ activitiesList, showActivity, removeActivity }) => {
     if (!map) {
       console.log('new')
       const newMap = new google.maps.Map(googleMap.current, {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 12,
+        center: center ,
+        zoom: 8,
         disableDefaultUI: true
       })
       setMap(newMap)

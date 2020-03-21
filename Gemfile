@@ -27,7 +27,9 @@ gem 'country_select'
 gem 'dotenv-rails', groups: [:development, :test]
 gem "pundit"
 gem 'simple_token_authentication'
-
+gem 'flag-icons-rails'
+gem 'unsplash'
+gem 'geocoder'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

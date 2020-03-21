@@ -1,0 +1,41 @@
+.pic-card-container {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 24px;
+    color: #6a6a6a;
+    letter-spacing: 0.39px;
+    text-align: center;
+  }
+}
+
+.trip-cards-wrapper{
+  padding: 16px 16px;
+  a{
+    color: rgb(83, 83, 83);
+    text-decoration: none;
+  }
+}
+
+
+.add-trip-btn{
+      position: absolute;
+    left: calc( 50% - 30px);
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    bottom: 25px;
+    background: #6700f9;
+    z-index: 999;
+    height: 60px;
+    border-radius: 55px;
+    align-items: flex-start;
+    padding-top: 10px;
+      img {
+    width: 40px;  
+  }
+
+}

@@ -5,16 +5,18 @@ class TripsController < ApplicationController
   def new
     @trip = Trip.new
     authorize @trip
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     authorize @trip
-    if @trip.save
-      redirect_to @trip
-    else
-      render 'new'
+    @trip.save
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -32,6 +34,6 @@ class TripsController < ApplicationController
 private
 
   def trip_params
-    params.require(:trip).permit(:start_date, :end_date, :country, :description)
+    params.require(:trip).permit(:title, :start_date, :end_date, :country, :description)
   end
 end
