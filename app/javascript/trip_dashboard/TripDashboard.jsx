@@ -3,6 +3,7 @@ import ActivityForm from './activity-form/ActivityForm'
 import TripMap from './map/TripMap.jsx'
 import TripCard from './cards/TripCard.jsx'
 import Navtab from './navtab/Navtab.jsx'
+import MapCity from '../images/MapCity.png'
 import Spinner from './spinner/Spinner'
 import DashboardHeader from './dashboardHeader/DashboardHeader'
 import ActivityShowCard from './cards/ActivityShowCard'
@@ -74,6 +75,7 @@ const TripDashboard = (props) => {
     setShowMap(false)
   }
 
+  console.log(activitiesList.length)
   let page
   if (isLoading) {
     page = <Spinner />
@@ -119,7 +121,7 @@ const TripDashboard = (props) => {
               showActivity={showActivity}
               removeActivity={removeActivity}
               activitiesList={activitiesList}
-              center={{lat: trip.latitude, lng: trip.longitude}}
+              center={{ lat: trip.latitude, lng: trip.longitude }}
               display={showMap}
             />
           ) : (
@@ -135,6 +137,12 @@ const TripDashboard = (props) => {
                 />
               ))
           )}
+          {activitiesList.length === 0 ? (
+            <div className="no-activities-container">
+              <img src={MapCity} />
+              <p>No ToSee Places yet. Let’s add one!</p>
+            </div>
+          ) : null}
         </div>
         <Navtab
           toggleList={toggleList}

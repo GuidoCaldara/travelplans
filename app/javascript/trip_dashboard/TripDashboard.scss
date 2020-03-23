@@ -6,20 +6,20 @@
   bottom: 70px;
   right: 20px;
 }
-.dashboard-wrapper{
-  height: calc(100vh); 
+.dashboard-wrapper {
+  height: calc(100vh);
   display: flex;
   flex-direction: column;
 }
 .trip-card-container {
-  padding: 0px 8px;
+  padding: 0px 10vw;
   flex: 1;
   position: relative;
 }
 
-.activity-list-header{
+.activity-list-header {
   text-align: center;
-  h3{
+  h3 {
     font-size: 16px;
     color: #717171;
     letter-spacing: 0.54px;
@@ -28,10 +28,43 @@
   }
 }
 
-.map-container{
+.map-container {
   width: 100%;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    height: 100%;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  height: 100%;
 }
+
+.no-activities-container {
+  img {
+    width: 50%;
+    margin: 0 auto;
+    display: inherit;
+    margin-top: 20px;
+  }
+  p {
+    font-family: SFProText-Regular;
+    font-size: 24px;
+    margin-top: 10px;
+    color: #6a6a6a;
+    letter-spacing: 0.39px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .no-activities-container {
+    img {
+      width: 80%;
+      margin-top: 8vh;
+    }
+  }
+  .trip-card-container {
+    padding: 0px 8px;
+    flex: 1;
+    position: relative;
+  }
+}
+
+

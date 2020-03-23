@@ -1,13 +1,13 @@
 .trip-form-container{
     z-index: 9999;
     position: absolute;
-    background: white;
+  background-color:#F4F4F4;
     width: 100%;
     height: 100vh;
-    padding: 20px 10px;
+    padding: 0px 0px;
     .form-wrapper{
   padding: 0px 24px;
-  border-radius: 24px;
+  padding: 20px 0px;
   input[type='submit']{
     width: 100%;
     margin-top: 30px;
@@ -15,10 +15,14 @@
   }
     }
 }
+.new_trip{
+      padding: 0px 24px;
+
+}
 
 
 #trip_description{
-    height: 200px;
+    height: 120px;
 }
 
 

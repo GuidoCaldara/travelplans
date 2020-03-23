@@ -1,8 +1,10 @@
-<h1 class="is-size-1">Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
+<div class="home-banner-container">
+    <h1 class="">TravelPlan</h1>
+    <p>The ToDo list for your travels</p>
+    <%= image_tag 'MapCity.png', class: "logo-img" %>
+    <%= link_to user_facebook_omniauth_authorize_path  do %>
+      <%= image_tag 'login-fb-btn.png', class: "login-btn"%>
+    <% end %>
+</div>
 
-<%= link_to "sign_in", new_user_session_path %>
-<% if current_user %>
-<%= link_to "trips", trip_path(current_user.trips.first) %>
-<% end %>

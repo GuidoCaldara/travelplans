@@ -12,30 +12,41 @@
   }
 }
 
-.trip-cards-wrapper{
+.trip-cards-wrapper {
   padding: 16px 16px;
-  a{
+  a {
     color: rgb(83, 83, 83);
     text-decoration: none;
   }
 }
 
-
-.add-trip-btn{
-      position: absolute;
-    left: calc( 50% - 30px);
-    width: 60px;
-    display: flex;
-    justify-content: center;
-    bottom: 25px;
-    background: #6700f9;
-    z-index: 999;
-    height: 60px;
-    border-radius: 55px;
-    align-items: flex-start;
-    padding-top: 10px;
-      img {
-    width: 40px;  
+.add-trip-btn {
+  position: absolute;
+  left: calc(50% - 30px);
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  bottom: 25px;
+  background: #6700f9;
+  z-index: 999;
+  height: 60px;
+  border-radius: 55px;
+  align-items: flex-start;
+  padding-top: 10px;
+  img {
+    width: 40px;
   }
+}
 
+.logout-btn-link {
+  position: absolute;
+  right: 21px;
+  bottom: 21px;
+  display: initial;
+  display: flex;
+  justify-content: flex-end;
+
+  img {
+    width: 10%;
+  }
 }

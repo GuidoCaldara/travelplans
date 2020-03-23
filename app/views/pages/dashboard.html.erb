@@ -5,7 +5,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 mx-auto">
       
       <% if @user.trips.empty? %>
       <div class="pic-card-container">
@@ -29,3 +29,8 @@
       <%= image_tag "add.svg" %>
     <% end  %>
   </div>  
+
+
+  <%= link_to destroy_user_session_path, method: :delete, class:"logout-btn-link" do %>
+      <%= image_tag "logout.svg" %>
+  <% end %>

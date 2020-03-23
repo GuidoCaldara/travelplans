@@ -30,6 +30,8 @@ gem 'simple_token_authentication'
 gem 'flag-icons-rails'
 gem 'unsplash'
 gem 'geocoder'
+gem 'omniauth-facebook'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

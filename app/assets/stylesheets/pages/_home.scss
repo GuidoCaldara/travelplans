@@ -1,0 +1,20 @@
+.home-banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  color: #5b00d9;
+  .logo-img {
+    margin-top: 5vh;
+    width: 70%;
+  }
+  .login-btn {
+    margin-top: 8vh;
+    width: 75%;
+  }
+  a {
+    display: flex;
+    justify-content: center;
+  }
+}
