@@ -12,7 +12,7 @@ class Api::V1::ActivitiesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @user = current_user
     @activity = Activity.new(activity_params)
-    @activity.automatic_picture = "https://picsum.photos/200/300"
+    # @activity.automatic_picture = "https://picsum.photos/200/300"
     @activity.trip = @trip
     authorize @activity
     if @activity.save

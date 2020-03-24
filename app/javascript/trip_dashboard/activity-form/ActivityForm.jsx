@@ -130,15 +130,3 @@ const ActivityForm = (props) => {
 }
 
 export default ActivityForm
-
-// {errors.map((e, i) => (
-//   <p key={i}>{e}</p>
-// ))}
-
-// <div className="form-group">
-// <Select
-//   value={activityCategory}
-//   onChange={(c) => setActivityCategory(c)}
-//   options={options}
-// />
-// </div>
