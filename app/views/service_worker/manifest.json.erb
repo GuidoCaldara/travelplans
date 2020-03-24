@@ -1,21 +1,17 @@
 {
-  "short_name": "My App",
-  "name": "My Very Progressive Web App",
+  "background_color": "white",
+  "description": "TravelPlan. Create the to see list for your next trip",
+  "display": "fullscreen",
   "icons": [
     {
-      "src": "<%= asset_path('compass.png') %>",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "<%= image_path 'icons/android-icon-192x192.png' %>",
+      "sizes": "192x192",
+      "type": "image/png"
     },
-    {
-      "src": "<%= asset_path('compass.png') %>",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
+    {},
+    {}
   ],
-  "start_url": "<%= root_path %>",
-  "background_color": "#fff",
-  "display": "standalone",
-  "scope": "<%= root_path %>",
-  "theme_color": "#000"
+  "name": "TravelPlan",
+  "short_name": "TravelPlan",
+  "start_url": "/"
 }
