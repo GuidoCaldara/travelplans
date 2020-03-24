@@ -7,14 +7,27 @@
   color: #5b00d9;
   .logo-img {
     margin-top: 5vh;
-    width: 70%;
+    width: 40%;
   }
   .login-btn {
     margin-top: 8vh;
-    width: 75%;
+    width: 40%;
   }
   a {
     display: flex;
     justify-content: center;
   }
+}
+
+
+@media screen and (max-width: 600px) {
+.home-banner-container {
+  .logo-img {
+    margin-top: 5vh;
+    width: 70%;
+  }
+  .login-btn {
+    width: 75%;
+  }
+}
 }
