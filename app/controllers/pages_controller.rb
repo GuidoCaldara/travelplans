@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def home
     @user = current_user
     if current_user
-      render 'dashboard'
+      redirect_to dashboard_path
     else
       render 'home'
     end

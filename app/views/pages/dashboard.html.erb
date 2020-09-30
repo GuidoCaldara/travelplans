@@ -33,6 +33,9 @@
   </div>  
 
 
-  <%= link_to destroy_user_session_path, method: :delete, class:"logout-btn-link" do %>
-      <%= image_tag "logout.svg" %>
-  <% end %>
+  <div class="logout-btn-link">
+    <%= link_to destroy_user_session_path, method: :delete do %>
+        <%= image_tag "logout.svg" %>
+    <% end %>
+
+  </div>

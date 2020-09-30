@@ -15,19 +15,21 @@
   }
   a {
     display: flex;
+    display: flex;
     justify-content: center;
+    align-items: center;
   }
 }
 
 
 @media screen and (max-width: 600px) {
-.home-banner-container {
-  .logo-img {
-    margin-top: 5vh;
-    width: 70%;
+  .home-banner-container {
+    .logo-img {
+      margin-top: 5vh;
+      width: 70%;
+    }
+    .login-btn {
+      width: 75%;
+    }
   }
-  .login-btn {
-    width: 75%;
-  }
-}
 }
